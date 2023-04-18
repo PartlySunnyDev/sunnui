@@ -2,18 +2,27 @@ plugins {
     id 'java'
 }
 
-group = 'me.partlysunny.sunnui'
 version = '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    group = 'me.partlysunny.sunnui'
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
+subprojects {
 
-test {
-    useJUnitPlatform()
+    apply plugin: 'java'
+
+    dependencies {
+        compileOnly 'org.jetbrains:annotations:22.0.0'
+        testImplementation platform('org.junit:junit-bom:5.9.1')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
