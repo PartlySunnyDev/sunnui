@@ -8,4 +8,5 @@ public interface ElementBounds {
 
     List<Coord> getBoundContents();
 
+    boolean contains(Coord coord);
 }

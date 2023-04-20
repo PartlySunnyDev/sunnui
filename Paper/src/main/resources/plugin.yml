@@ -1,4 +1,0 @@
-name: Paper
-version: '${version}'
-main: me.partlysunny.sunnui.paper.Paper
-api-version: 1.19

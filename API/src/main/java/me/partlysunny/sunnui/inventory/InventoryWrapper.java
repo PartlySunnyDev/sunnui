@@ -1,29 +1,37 @@
 package me.partlysunny.sunnui.inventory;
 
 import me.partlysunny.sunnui.inventory.element.InventoryElement;
-import me.partlysunny.sunnui.inventory.element.InventorySlot;
+import me.partlysunny.sunnui.inventory.panes.InventoryPane;
+import me.partlysunny.sunnui.inventory.panes.PaneMap;
 import me.partlysunny.sunnui.util.Coord;
 
 import java.util.List;
 
-public interface InventoryWrapper<T> {
+/**
+ * Represents an inventory
+ * @param <T> The type of item in the inventory
+ * @param <U> The type of inventory
+ */
+public interface InventoryWrapper<T, U> {
 
-    List<InventorySlot<T>> slots();
+    List<T> slots();
 
-    List<InventoryElement<T>> elements();
+    PaneMap<T, U> paneMap();
 
     void updateSlots();
 
-    void addElement(InventoryElement<T> element);
+    InventoryElement<T, U> getElement(Coord coord);
 
-    void addElement(Coord coord, InventoryElement<T> element);
+    InventoryPane<T, U> getPane(Coord coord);
 
-    void removeElement(InventoryElement<T> element);
+    void addPane(InventoryPane<T, U> pane);
 
-    void removeElement(Coord coord);
+    void removePane(InventoryPane<T, U> pane);
 
-    void clearElements();
+    void removePane(Coord coord);
 
-    InventoryElement<T> getElement(Coord coord);
+    int getSlot(Coord coord);
+
+    U getInventory();
 
 }
