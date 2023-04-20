@@ -14,24 +14,42 @@ import java.util.List;
  */
 public interface InventoryWrapper<T, U> {
 
+    /**
+     * Returns the items in the inventory
+     * @return The items in the inventory
+     */
     List<T> slots();
 
+    /**
+     * Returns the pane map for the inventory
+     * @return The pane map for the inventory
+     */
     PaneMap<T, U> paneMap();
 
+    /**
+     * Updates the slots in the inventory based on the pane map
+     * Also applies the background item to the inventory
+     */
     void updateSlots();
 
+    /**
+     * Get the element at the given coordinate
+     * @param coord The coordinate
+     * @return The element at the given coordinate
+     */
     InventoryElement<T, U> getElement(Coord coord);
 
-    InventoryPane<T, U> getPane(Coord coord);
-
-    void addPane(InventoryPane<T, U> pane);
-
-    void removePane(InventoryPane<T, U> pane);
-
-    void removePane(Coord coord);
-
+    /**
+     * Convert a coordinate to the slot index in the inventory
+     * @param coord The coordinate
+     * @return The slot index in the inventory
+     */
     int getSlot(Coord coord);
 
+    /**
+     * Get the underlying inventory object
+     * @return The underlying inventory object
+     */
     U getInventory();
 
 }

@@ -59,7 +59,7 @@ public class SimplePane implements InventoryPane<ItemStack, Inventory> {
 
     @Override
     public void removeElement(Coord localCoord) {
-        elements.stream().filter(element -> element.getCoord().equals(localCoord.add(position))).forEach(a -> {
+        elements.stream().filter(element -> element.getBounds().contains(localCoord.add(position))).forEach(a -> {
             elements.remove(a);
             a.sendUpdate();
         });

@@ -43,6 +43,6 @@ public class PaperViewerManager implements ViewerManager<ItemStack, Inventory> {
 
     @Override
     public void closeView(GuiInstance<? extends InventoryWrapper<ItemStack, Inventory>> view) {
-        viewers.entrySet().stream().filter(entry -> entry.getValue().equals(view)).map(Map.Entry::getKey).forEach(viewers::remove);
+        viewers.entrySet().stream().filter(entry -> entry.getValue().equals(view)).map(Map.Entry::getKey).forEach(this::closeView);
     }
 }

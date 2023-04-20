@@ -61,28 +61,8 @@ public class ChestInventoryWrapper implements InventoryWrapper<ItemStack, Invent
     }
 
     @Override
-    public InventoryPane<ItemStack, Inventory> getPane(Coord coord) {
-        return paneMap.getPane(coord);
-    }
-
-    @Override
-    public void addPane(InventoryPane<ItemStack, Inventory> pane) {
-        paneMap.addPane(pane);
-    }
-
-    @Override
-    public void removePane(InventoryPane<ItemStack, Inventory> pane) {
-        paneMap.removePane(pane);
-    }
-
-    @Override
-    public void removePane(Coord coord) {
-        paneMap.removePane(coord);
-    }
-
-    @Override
     public int getSlot(Coord coord) {
-        return coord.getX() + (coord.getY() * 9);
+        return Coord.toSlot(coord);
     }
 
     @Override

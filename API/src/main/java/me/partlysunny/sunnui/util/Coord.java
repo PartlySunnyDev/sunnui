@@ -1,5 +1,8 @@
 package me.partlysunny.sunnui.util;
 
+/**
+ * A simple class to represent a coordinate pair.
+ */
 public class Coord {
 
     private int x;
