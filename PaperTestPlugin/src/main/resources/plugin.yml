@@ -1,0 +1,10 @@
+name: PaperTestPlugin
+version: '${version}'
+main: me.partlysunny.sunnui.papertestplugin.PaperTestPlugin
+api-version: 1.19
+commands:
+  testgui:
+    description: Opens a test GUI
+    usage: /testgui
+    permission: op
+    permission-message: You do not have permission to use this command.
